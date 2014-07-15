@@ -1,30 +1,35 @@
 start
     = pattern
 
-pattern = p:_pattern { p.reverse() }
+pattern =
+    p:_pattern { p.reverse() }
 
 _pattern
     = a:token rest:_pattern { rest.concat [a] }
     / a:color rest:_pattern { rest.concat [a] }
     / a:literal rest:_pattern { rest.concat [a] }
-    / a:percent rest:_pattern { rest.concat [a] }
     /
 
 token
     = ':' token:[a-zA-Z]+ { token: token.join('') }
 
 color
-    = '%{' color:token '}' sub:pattern '%' {
+    = '%{' color:token ws sub:pattern '}' {
         color: color,
         pattern: sub
     }
-    / '%{' color:[a-zA-Z]+ '}' sub:pattern '%' {
+    / '%{' color:[a-zA-Z]+ ws sub:pattern '}' {
         color: color.join('')
         pattern: sub
     }
 
-literal
-    = text:[^%:]+ { literal: text.join('') }
+ws
+    = ' '
+    /
 
-percent
-    = '%%' { literal: '%' }
+literal
+    = text:char+ { literal: text.join('') }
+
+char
+    = [^}{%:]
+    / '%%' { '%' }
