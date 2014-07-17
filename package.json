@@ -1,6 +1,6 @@
 {
   "name": "rapidus-sparkle",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./lib/sparkle",
   "repository": {
     "type": "git",
