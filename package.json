@@ -1,11 +1,14 @@
 {
   "name": "rapidus-sparkle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/sparkle",
   "repository": {
     "type": "git",
     "url": "https://github.com/keis/rapidus-configure.git"
   },
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "test": "mocha --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit"
   },
