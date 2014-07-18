@@ -5,7 +5,7 @@ describe "sparkle", ->
         foo: 'foo-text'
         bar: 'bar-text'
         baz: 'red'
-        fun: -> 'returned'
+        level: -> 'WARNING'
 
     it "performs a simple substitution", ->
         frmt = createFormatter
@@ -27,6 +27,20 @@ describe "sparkle", ->
 
     it "calls attributes that are resolved to functions", ->
         frmt = createFormatter
-            format: ':fun'
+            format: ':level'
         str = frmt record
-        assert.equal str, 'returned'
+        assert.equal str, 'WARNING'
+
+    it "ignores bad colour identifiers", ->
+        frmt = createFormatter
+            format: '%{fisk zoidberg}'
+        str = frmt record
+        assert.equal str, 'zoidberg'
+
+    it "resolves aliases for colours", ->
+        frmt = createFormatter
+            format: '%{:level zoidberg}'
+            colors:
+                WARNING: 'yellow'
+        str = frmt record
+        assert.equal str, 'zoidberg'.yellow
