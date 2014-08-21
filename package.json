@@ -6,6 +6,8 @@
     "type": "git",
     "url": "https://github.com/keis/rapidus-configure.git"
   },
+  "author": "David Keijser <keijser@gmail.com",
+  "license": "MIT",
   "files": [
     "lib/"
   ],
@@ -14,9 +16,6 @@
   },
   "dependencies": {
     "colors": "~0.6.2"
-  },
-  "peerDependencies": {
-    "rapidus": "0.x.x"
   },
   "devDependencies": {
     "awake": "^0.1.1",
