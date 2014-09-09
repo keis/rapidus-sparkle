@@ -4,7 +4,7 @@ DOCCO=node_modules/.bin/docco
 PEG=node_modules/.bin/pegjs
 PEGARGS=--plugin pegjs-coffee-plugin
 
-SRC=$(shell find lib/ -type f)
+SRC=$(shell find lib/ -type f) lib/parser.js
 TESTSRC=$(shell find test/ -type f)
 DOCS=$(patsubst lib/%.js, docs/%.html, $(SRC))
 
@@ -26,6 +26,9 @@ coverage/coverage.json:
 
 coverage/index.html: coverage/coverage.json
 	$(ISTANBUL) report html
+
+coverage/lcov.info: coverage/coverage.json
+	$(ISTANBUL) report lcov
 
 lib/parser.js: lib/parser.pegcoffee
 	$(PEG) $(PEGARGS) $^ $@
