@@ -17,13 +17,13 @@ describe "sparkle", ->
         frmt = createFormatter
             format: '%{cyan my little text}'
         str = frmt record
-        assert.equal str, 'my little text'.cyan
+        assert.equal str, unescape '%1B%5B36mmy%20little%20text%1B%5B39m'
 
     it "colours a text based on a token", ->
         frmt = createFormatter
             format: '%{:baz my little text}'
         str = frmt record
-        assert.equal str, 'my little text'.red
+        assert.equal str, unescape '%1B%5B31mmy%20little%20text%1B%5B39m'
 
     it "calls attributes that are resolved to functions", ->
         frmt = createFormatter
@@ -43,4 +43,4 @@ describe "sparkle", ->
             colors:
                 WARNING: 'yellow'
         str = frmt record
-        assert.equal str, 'zoidberg'.yellow
+        assert.equal str, unescape '%1B%5B33mzoidberg%1B%5B39m'
