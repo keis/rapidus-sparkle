@@ -13,6 +13,12 @@ describe "sparkle", ->
         str = frmt record
         assert.equal str, 'foo-text - bar-text!'
 
+    it "formats undefined as a dash", ->
+        frmt = createFormatter
+            format: ':foo :bad'
+        str = frmt record
+        assert.equal str, 'foo-text -'
+
     it "colours a text", ->
         frmt = createFormatter
             format: '%{cyan my little text}'
