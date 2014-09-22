@@ -50,3 +50,15 @@ describe "sparkle", ->
                 WARNING: 'yellow'
         str = frmt record
         assert.equal str, unescape '%1B%5B33mzoidberg%1B%5B39m'
+
+    it "accepts format string as first argument", ->
+        frmt = createFormatter ':foo'
+        str = frmt record
+        assert.equal str, 'foo-text'
+
+    it "accepts options as second argument", ->
+        frmt = createFormatter '%{:level :foo}',
+            colors:
+                WARNING: 'yellow'
+        str = frmt record
+        assert.equal str, unescape '%1B%5B33mfoo-text%1B%5B39m'
