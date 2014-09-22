@@ -52,9 +52,9 @@ describe "sparkle", ->
         assert.equal str, unescape '%1B%5B33mzoidberg%1B%5B39m'
 
     it "accepts format string as first argument", ->
-        frmt = createFormatter ':foo'
+        frmt = createFormatter '%{cyan :foo}'
         str = frmt record
-        assert.equal str, 'foo-text'
+        assert.equal str, unescape '%1B%5B36mfoo-text%1B%5B39m'
 
     it "accepts options as second argument", ->
         frmt = createFormatter '%{:level :foo}',
