@@ -1,5 +1,6 @@
 {
   "name": "rapidus-sparkle",
+  "description": "Make your log messages shine and sparkle",
   "version": "0.2.4",
   "main": "./lib/sparkle",
   "repository": {
