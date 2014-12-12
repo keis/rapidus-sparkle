@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/keis/rapidus-configure.git"
   },
-  "author": "David Keijser <keijser@gmail.com",
+  "author": "David Keijser <keijser@gmail.com>",
   "license": "MIT",
   "files": [
     "lib/"

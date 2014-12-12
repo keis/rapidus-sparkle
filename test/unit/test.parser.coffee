@@ -53,6 +53,15 @@ describe "parser", ->
             parse '%{red%'
         assert.throws fun, SyntaxError, /but .%. found/
 
+    it "populates error object", (done) ->
+        try
+            parse 'pre %{red%'
+        catch e
+            assert.equal e.line, 1
+            assert.equal e.column, 10
+            assert.equal e.found, '%'
+            done()
+
     it "parses a complex format", ->
         expected = [
             (token: 'foo')
