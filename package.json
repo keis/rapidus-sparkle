@@ -14,6 +14,7 @@
   ],
   "scripts": {
     "test": "mocha --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
+    "bench": "coffee -c test/benchmark.coffee ; matcha test/benchmark.js",
     "prepublish": "make lib/parser.js"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "coveralls": "^2.11.1",
     "docco": "^0.6.3",
     "istanbul": "^0.3.2",
+    "matcha": "^0.6.0",
     "mocha": "^1.19.0",
     "pegjs": "^0.8.0",
     "pegjs-coffee-plugin": "^0.2.2",
