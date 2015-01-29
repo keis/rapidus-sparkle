@@ -5,7 +5,7 @@
   "main": "./lib/sparkle",
   "repository": {
     "type": "git",
-    "url": "https://github.com/keis/rapidus-configure.git"
+    "url": "https://github.com/keis/rapidus-sparkle.git"
   },
   "author": "David Keijser <keijser@gmail.com>",
   "license": "MIT",
