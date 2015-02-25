@@ -31,6 +31,12 @@ describe "sparkle", ->
         str = frmt record
         assert.equal str, unescape '%1B%5B31mmy%20little%20text%1B%5B39m'
 
+    it "colours a text with a nested colour definition", ->
+        frmt = createFormatter
+            format: '%{cyan foo%{blue bar}foo}'
+        str = frmt record
+        assert.equal str, unescape '%1B%5B36mfoo%1B%5B34mbar%1B%5B36mfoo%1B%5B39m'
+
     it "calls attributes that are resolved to functions", ->
         frmt = createFormatter
             format: ':level'
