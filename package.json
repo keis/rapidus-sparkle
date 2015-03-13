@@ -13,15 +13,18 @@
     "lib/"
   ],
   "scripts": {
+    "prepublish": "pegjs --plugin pegjs-coffee-plugin lib/parser.pegcoffee lib/parser.js",
     "test": "mocha --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
     "bench": "coffee -c test/benchmark.coffee ; matcha test/benchmark.js",
-    "prepublish": "make lib/parser.js"
+    "coverage": "istanbul cover _mocha --report lcovonly -- --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
+    "billom": "billom package.json \"$npm_package_name\" > package.html",
+    "docs": "docco lib/*.js"
   },
   "dependencies": {
     "chalk": "^1.0.0"
   },
   "devDependencies": {
-    "awake": "^0.1.1",
+    "billom": "^1.0.2",
     "chai": "^2.1.0",
     "coffee-script": "~1.9.0",
     "coveralls": "^2.11.1",
