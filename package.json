@@ -13,6 +13,7 @@
     "lib/"
   ],
   "scripts": {
+    "pretest": "pegjs --plugin pegjs-coffee-plugin lib/parser.pegcoffee lib/parser.js",
     "prepublish": "pegjs --plugin pegjs-coffee-plugin lib/parser.pegcoffee lib/parser.js",
     "lint": "eslint lib/sparkle.js test",
     "test": "mocha --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
