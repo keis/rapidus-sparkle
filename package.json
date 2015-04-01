@@ -14,8 +14,9 @@
   ],
   "scripts": {
     "prepublish": "pegjs --plugin pegjs-coffee-plugin lib/parser.pegcoffee lib/parser.js",
+    "lint": "eslint lib/sparkle.js test",
     "test": "mocha --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
-    "bench": "coffee -c test/benchmark.coffee ; matcha test/benchmark.js",
+    "bench": "coffee -c test/benchmark.coffee ; matcha test/benchmark.js; rm test/benchmark.js",
     "coverage": "istanbul cover _mocha --report lcovonly -- --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
     "billom": "billom package.json \"$npm_package_name\" > package.html",
     "docs": "docco lib/*.js"
@@ -29,6 +30,7 @@
     "coffee-script": "~1.9.0",
     "coveralls": "^2.11.1",
     "docco": "^0.7.0",
+    "eslint": "^0.18.0",
     "istanbul": "^0.3.2",
     "matcha": "^0.6.0",
     "mocha": "^2.1.0",
