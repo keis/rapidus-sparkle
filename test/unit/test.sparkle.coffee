@@ -1,5 +1,5 @@
 describe "sparkle", ->
-    {createFormatter} = require '../../lib/sparkle'
+    createFormatter = require '../../lib/sparkle'
 
     record =
         foo: 'foo-text'
