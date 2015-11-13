@@ -32,7 +32,7 @@
     "coveralls": "^2.11.1",
     "docco": "^0.7.0",
     "dullstring": "^1.0.1",
-    "eslint": "^0.18.0",
+    "eslint": "^1.9.0",
     "hogan": "^1.0.2",
     "istanbul": "^0.3.2",
     "matcha": "^0.6.0",
